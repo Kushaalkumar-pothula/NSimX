@@ -16,3 +16,6 @@ To run the code, enter the directory where the file ```simulate.f90``` exists an
 gfortran simulate.f90 -o simulate
 ```
 This creates an executable ```simulate```. To run it on Windows, run ```simulate.exe``` from the same directory, and on Unix systems, run ```./simulate```.
+
+---
+I has been noticed that the code cannot run completely when there are ```.txt``` files in the same directory. This bug could be resolved later. For now, **remember to move  ```.txt``` from the same directory as the code before running it**.
