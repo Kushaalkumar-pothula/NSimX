@@ -79,7 +79,7 @@ program simulate
 
     real :: s, t, tEnd, dt
 
-    integer :: N, seed, Nt, i
+    integer :: N, seed, Nt, i, a, b, c
 
     N = 100     ! 100 particles
     t = 0   ! Current tme of simulation
@@ -98,7 +98,7 @@ program simulate
     ones(:) = 1
     
     allocate(mass(N))
-    mass = (20.0*ones)/N
+    mass = (1000.0*ones)/N  ! Combined mass = 1000, i.e each body has a mass of 10
     
     ! Generate random positions
     allocate(pos(N,3))
@@ -137,13 +137,20 @@ program simulate
 
     !---Save Output----------------------------------------------------------------
 
-    open(10, file="pos_save.txt", status="new", action="write")
-    write(10, *) pos_save
-    close(10)
-    
-    open(12, file = "positions.txt", status = "new", action = "write")
-    write(12, *) pos
-    close(12)
+    open(10, file="positions.txt", status="new", action="write")
+    do a = 1, ubound(pos, 1)
+        write(10,*) pos(a, :)
+    end do
+
+    open(12, file="acceleration.txt", status="new", action="write")
+    do b = 1, ubound(acc, 1)
+        write(12,*) acc(b, :)
+    end do
+
+    open(13, file="velocity.txt", status="new", action="write")
+    do c = 1, ubound(vel, 1)
+        write(13,*) vel(c, :)
+    end do
     !------------------------------------------------------------------------------
     
     
