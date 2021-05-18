@@ -2,17 +2,11 @@
 
 echo "Starting NsimX..."
 # Remove .txt files
-file="*.txt"
-
-if [ -f "$file" ] ; then
-    rm "$file"
-fi
-
+rm -f *.txt
 echo "Compiling code..."
 # Run NsimX
 gfortran simulate.f90 -o simulate
-
 echo "Running code..."
+# Run executable
 ./simulate
-
 echo "NsimX simulation finished."
