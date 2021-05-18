@@ -28,9 +28,9 @@ subroutine acceleration(pos, mass, soft, acc)
 
     !---Initialization---------------------------------------------------
     G = 6.673e-11   ! Gravitational Constant
-    N = size(pos,1) ! Numer of particles
-    allocate(acc(N,3))
-    acc(:,:) = 0
+    N = size(pos,1) ! Number of particles
+    allocate(acc(N,3))  ! Allocate acceleration array as an N x 3 matrix
+    acc(:,:) = 0    ! Initialize acceleration with N x 3 zeros
     !--------------------------------------------------------------------
 
     !---Main loop--------------------------------------------------------
@@ -39,7 +39,8 @@ subroutine acceleration(pos, mass, soft, acc)
             dx = pos(j,1) - pos(i,1)
             dy = pos(j,2) - pos(i,2)
             dz = pos(j,3) - pos(i,3)
-
+            
+            ! Inverse r^3
             inv_r3 = (dx**2 + dy**2 + dz**2 + soft**2)**(-1.5)
 
             acc(i,1) = acc(i,1) +  G * (dx * inv_r3) * mass(j)
@@ -54,7 +55,21 @@ end subroutine acceleration
 
 
 program simulate
-
+    !====================================================================!
+    !          Simulates motion of N bodies due to gravity               !
+    !          -------------------------------------------               !
+    ! Uses:                                                              !
+    ! -----                                                              !
+    !    - Subroutine: acceleration                                      !
+    !                                                                    !
+    ! Outputs:                                                           !
+    ! -------                                                            !
+    !    - N x 3 matrix of positions                                     !
+    !    - N x 3 matrix of velocities                                    !
+    !    - N x 3 matrix of accelerations                                 !
+    !                                                                    !
+    !====================================================================!
+    
     implicit none
     
     !---Create interface to subroutine acceleration----------------------
@@ -120,6 +135,7 @@ program simulate
     
     
     !---Main simulation loop-------------------------------------------------------
+    ! Uses a leapfrog scheme (kick - drift - kick)
     do i = 1, Nt
     
         vel = vel + ((acc*(dt/2.0)))  ! 1/2 Kick
@@ -136,17 +152,20 @@ program simulate
     !------------------------------------------------------------------------------
 
     !---Save Output----------------------------------------------------------------
-
+    
+    ! Save positions
     open(10, file="positions.txt", status="new", action="write")
     do a = 1, ubound(pos, 1)
         write(10,*) pos(a, :)
     end do
-
+    
+    ! Save accelerations
     open(12, file="acceleration.txt", status="new", action="write")
     do b = 1, ubound(acc, 1)
         write(12,*) acc(b, :)
     end do
-
+    
+    ! Save velocities
     open(13, file="velocity.txt", status="new", action="write")
     do c = 1, ubound(vel, 1)
         write(13,*) vel(c, :)
