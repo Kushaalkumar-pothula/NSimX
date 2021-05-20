@@ -9,12 +9,11 @@ $ https://github.com/Kushaalkumar-pothula/NSimX.git
 ```
 
 ## 2. Usage
-To run the code, enter the directory where the file ```simulate.f90``` exists and open it in a terminal. Then run the following command:
+To run the code, run the following commands after installation:
 ```bash
 cd NSimX
 bash run.sh
 ```
-This runs ```simulate.f90``` and creates an executable ```simulate``` which is run using ```./simulate```. 
 
 ---
 
