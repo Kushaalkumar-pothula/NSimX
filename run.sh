@@ -2,10 +2,10 @@
 
 echo "Starting NsimX..."
 # Remove .txt files
-rm -f src/*.txt
+rm -f *.txt
 echo "Compiling code..."
 # Run NsimX
-gfortran src/gen.f90 -o src/gen
+gfortran -o gen gen.f90 nsimx.f90
 echo "Running code..."
 # Run executable
 src/gen
