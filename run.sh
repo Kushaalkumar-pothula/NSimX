@@ -8,5 +8,5 @@ echo "Compiling code..."
 gfortran -o gen gen.f90 nsimx.f90
 echo "Running code..."
 # Run executable
-src/gen
+gen
 echo "NsimX simulation finished."
