@@ -2,7 +2,7 @@
 A simple gravitational N-body simulator based on the Leapfrog integration scheme.
 
 ## 1. Installation
-*Dependencies*: To run this code, you must have ```gfortran``` (or any other Fortran compiler) installed.
+*Dependencies*: To run this code, you must have ```gfortran``` installed.
 To install NSimX, run the following command in your terminal:
 ```bash
 $ https://github.com/Kushaalkumar-pothula/NSimX.git
