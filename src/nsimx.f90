@@ -51,7 +51,7 @@ subroutine acceleration(pos, mass, soft, acc)
 
     !---Initialization---------------------------------------------------
     G = 6.673e-11   ! Gravitational Constant
-    N = size(pos,1) ! Numer of particles
+    N = size(pos,1) ! Number of particles
     allocate(acc(N,3))
     acc(:,:) = 0
     !--------------------------------------------------------------------
