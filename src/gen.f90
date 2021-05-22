@@ -14,7 +14,7 @@ program gen
 
     integer :: N, seed, Nt, i
 
-    N = 100     ! 100 particles
+    N = 100     ! 100 bodies
     t = 0   ! Current tme of simulation
     tEnd = 10.0    ! Time at which simulation ends
     dt = 0.1    ! Timestep
@@ -35,7 +35,7 @@ program gen
     ones(:) = 1
     
     allocate(mass(N))
-    mass = (1000.0*ones)/N  ! Combined mass = 1000, i.e each body has a mass of 10
+    mass = (100000.0*ones)/N  ! Combined mass = 100000, i.e each body has a mass of 1000
     
     ! Generate random positions
     allocate(pos(N,3))
@@ -70,10 +70,10 @@ program gen
         end do simulation
         !------------------------------------------------------------------------------
         count = count + 1
+        
         call savedata(pos, count)
+        
     end do data_out
-
-
 
 
 end program gen
