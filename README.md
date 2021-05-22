@@ -21,7 +21,3 @@ To run the code, run the following commands after installation:
 cd NSimX
 bash run.sh
 ```
-
----
-
-**Warning**: The file ```run.sh``` removes and ```.txt``` files in the directory to prevent bugs. Always move ```.txt``` files into another directory!
