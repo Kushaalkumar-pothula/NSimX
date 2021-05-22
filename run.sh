@@ -1,12 +1,22 @@
 #!/bin/bash
 
-echo "Starting NsimX..."
-# Remove .txt files
-rm -f src/*.txt
+echo "====================  NsimX N-body Simulator  ===================="
+echo "                      ---------------------                       "
+echo "    A fast gravitational leapfrog method based N-body simulator   "
+echo "                                                                  "
+echo "=================================================================="
+echo "Starting NSimX..."
+echo "                  "
 echo "Compiling code..."
-# Run NsimX
 gfortran -o gen src/gen.f90 src/nsimx.f90
+echo "Compilation finished successfully."
+echo "                                  "
 echo "Running code..."
-# Run executable
 ./gen
+echo "Code ran successfully."
+mv *.txt ./analysis
+cd analysis
+python analysis.py
+cd ../
+echo "                          "
 echo "NsimX simulation finished."
