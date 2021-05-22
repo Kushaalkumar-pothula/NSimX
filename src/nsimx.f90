@@ -97,7 +97,7 @@ subroutine savedata(pos_in,n)
     character(len=100) :: file_id
 
     ! Write the integer n into a string
-    write(file_id, '(i0.3)') n
+    write(file_id, '(i0)') n
 
     ! Construct the filename
     file_name = 'snapshot' // trim(adjustl(file_id)) // '.txt'
