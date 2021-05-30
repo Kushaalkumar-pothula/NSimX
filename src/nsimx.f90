@@ -27,7 +27,7 @@ subroutine acceleration(pos, mass, soft, acc)
     ! Inputs:                                                            !
     ! ------                                                             !
     !    - pos: N x 3 matrix of positions                                !
-    !    - mass: N  1 matrix of masses                                   !
+    !    - mass: N x 1 matrix of masses                                   !
     !    - soft: softening                                               !
     !                                                                    !
     ! Outputs:                                                           !
@@ -50,7 +50,7 @@ subroutine acceleration(pos, mass, soft, acc)
     !--------------------------------------------------------------------
 
     !---Initialization---------------------------------------------------
-    G = 6.673e-11   ! Gravitational Constant
+    G = 1   ! Gravitational Constant
     N = size(pos,1) ! Number of particles
     allocate(acc(N,3))
     acc(:,:) = 0
