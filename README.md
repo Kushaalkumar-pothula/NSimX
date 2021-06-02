@@ -3,11 +3,11 @@ A fast gravitational N-body simulator based on the Leapfrog integration scheme.
 
 ## 1. Installation
 *Dependencies*:
-- ```gfortran``` 
-- NumPy
-- Matplotlib
-- Pillow
-- imageio
+- A C compiler
+- Python
+  - NumPy
+  - Matplotlib
+  - imageio
 
 
 To install NSimX, run the following command in your terminal:
