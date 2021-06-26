@@ -1,5 +1,6 @@
 # NSimX
-A fast gravitational N-body simulator based on the Leapfrog integration scheme.
+<img src="./images/nsimx_logo.png">
+A fast and simple gravitational N-body simulator based on the Leapfrog integration scheme.
 
 ## 1. Installation
 *Dependencies*:
